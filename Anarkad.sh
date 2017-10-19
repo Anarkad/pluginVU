@@ -3,7 +3,7 @@
 rm -rf /tmp/AnarkadLista.zip
 
 cd /tmp/
-wget http://myupdater.dyndns-ip.com/jaro-13.zip -q -O /tmp/AnarkadLista.zip
+wget https://raw.githubusercontent.com/Anarkad/pluginVU/master/AnarkadLista.zip -q -O /tmp/AnarkadLista.zip
 FILE=/tmp/AnarkadLista.zip
 
 if [ -e $FILE ]; then
