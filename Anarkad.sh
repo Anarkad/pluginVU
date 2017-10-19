@@ -1,15 +1,10 @@
 #!/bin/sh
 
-# zakaz modyfikowania skryptu na własną rękę
-# zakaz modyfikowania list kanałów i ich późniejsze udostępnianie
-# No permission to modify this PLUGIN !!!
-# protection by Sancho!!!
-
-rm -rf /tmp/jaro-13.zip
+rm -rf /tmp/AnarkadLista.zip
 
 cd /tmp/
-wget http://myupdater.dyndns-ip.com/jaro-13.zip -q -O /tmp/jaro-13.zip
-FILE=/tmp/jaro-13.zip
+wget http://myupdater.dyndns-ip.com/jaro-13.zip -q -O /tmp/AnarkadLista.zip
+FILE=/tmp/AnarkadLista.zip
 
 if [ -e $FILE ]; then
     size=`ls -l $FILE | sed -e 's/  */ /g' | cut -d' ' -f5`
@@ -17,20 +12,20 @@ if [ -e $FILE ]; then
         echo "Nieprawidłowy plik $FILE! Spróbuj ponownie później..."
         exit 0
     else
-        unzip -o /tmp/jaro-13.zip -d /tmp/
-        cd /tmp/jaro-13
+        unzip -o /tmp/AnarkadLista.zip -d /tmp/
+        cd /tmp/AnarkadLista
         if [ -f satellites.xml ]; then
             rm -rf /etc/tuxbox/satellites.xml
-            mv /tmp/jaro-13/satellites.xml /etc/tuxbox/
+            mv /tmp/AnarkadLista/satellites.xml /etc/tuxbox/
             cd /etc/enigma2
             rm -rf *.tv
             rm -rf *.radio
             rm -rf blacklist
             rm -rf lamedb
-            mv /tmp/jaro-13/* /etc/enigma2
+            mv /tmp/AnarkadLista/* /etc/enigma2
 			
-            rm -rf /tmp/jaro-13
-            rm -rf /tmp/jaro-13.zip
+            rm -rf /tmp/AnarkadLista
+            rm -rf /tmp/AnarkadLista.zip
 			
 			wget -q -O /dev/null http://127.0.0.1/web/servicelistreload?mode=0 2>/dev/null
 			echo ""
